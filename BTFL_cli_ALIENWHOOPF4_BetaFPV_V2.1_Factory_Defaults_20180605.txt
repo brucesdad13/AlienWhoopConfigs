@@ -1,0 +1,99 @@
+#
+#         \   |   _ _| __|  \ |\ \      /|  |  _ \  _ \ _ \
+#        _ \  |     |  _|  .  | \ \ \  / __ | (   |(   |__/
+#      _/  _\____|___|___|_|\_|  \_/\_/ _| _|\___/\___/_|
+#              Take me to your leader-board...
+#
+# After backing up your settings (diff all) + (Save to File), cut & paste these into the CLI
+# to restore the factory defaults. Be sure to do a full chip erase when you reflash our custom
+# Betaflight 3.4 hex file.
+#
+# Instructions:
+#
+# Remove the # symbol from lines you want to include. 
+# Add a # symbol in front of commands you want to skip
+
+# Betaflight / ALIENWHOOPF4 (AWF4) 3.3.2 May  4 2018 / 09:19:18 (64a292f37) MSP API: 1.38
+
+# Uncomment the following CLI command to revert your settings to the factory default
+#defaults nosave
+
+# This CLI command sets the name you want to show up in the Configurator and OSD (AlienWhoop V3 only)
+name ALIENWHOOPF4
+
+# Spektrum users: uncommand this CLI command to force a your satellite into bind mode
+#resource RX_BIND_PLUG 1 B11
+
+# Which channels do you want to use to ARM, change flight modes, etc? Default is to ARM
+# on channel 5:
+aux 0 0 0 1300 2100
+
+# It's not recommended to change any of the PIDs or filter for a basic whoop
+#####################################################################
+set gyro_lowpass_hz = 100
+set gyro_notch1_hz = 0
+set gyro_notch2_hz = 0
+set gyro_stage2_lowpass_hz = 751
+set min_check = 1000
+set max_check = 2000
+set rc_interp = MANUAL
+set rc_interp_int = 14
+set blackbox_p_ratio = 16
+set motor_pwm_rate = 32000
+set moron_threshold = 200
+set current_meter = NONE
+set yaw_motors_reversed = ON
+set small_angle = 180
+set runaway_takeoff_prevention = OFF
+set mag_hardware = NONE
+set cpu_overclock = 216MHZ
+
+# Uncomment this line to enable advance gyro debugging for Blackbox
+#set debug_mode = NOTCH
+
+# profile
+profile 0
+
+# It's not recommended to change the pidsum limit or PIDs. Feel free to adjust
+# level limit (in degrees of forward tilt) or setpoint relax ratio to taste
+set anti_gravity_threshold = 500
+set anti_gravity_gain = 5000
+set setpoint_relax_ratio = 0
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+set p_pitch = 115
+set i_pitch = 75
+set d_pitch = 95
+set p_roll = 110
+set i_roll = 75
+set d_roll = 85
+set p_yaw = 220
+set i_yaw = 75
+set p_level = 65
+set i_level = 65
+set d_level = 55
+set level_limit = 65
+
+# restore original profile selection
+profile 0
+
+# rateprofile
+rateprofile 0
+
+# These are your rates and expo. We intentionally avoid super rates.
+set thr_expo = 20
+set roll_rc_rate = 218
+set pitch_rc_rate = 218
+set yaw_rc_rate = 217
+set roll_expo = 45
+set pitch_expo = 45
+set yaw_expo = 45
+set roll_srate = 0
+set pitch_srate = 0
+set yaw_srate = 0
+
+
+# Don't forget to save your changes with this CLI command!
+# save configuration
+save
+ 
